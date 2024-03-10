@@ -16,14 +16,14 @@ const PropertyCard = ({ property }) => {
     } else if (rates.weekly) {
       return `${rates.weekly.toLocaleString()}/wk`;
     } else if (rates.nightly) {
-      return `${rates.monthly.toLocaleString()}/night`;
+      return `${rates.nightly.toLocaleString()}/night`;
     }
   };
 
   return (
     <div className="rounded-xl shadow-md relative">
       <Image
-        src={`/images/properties/${property.images[0]}`}
+        src={property.images[0]}
         sizes="100vw"
         height={0}
         width={0}

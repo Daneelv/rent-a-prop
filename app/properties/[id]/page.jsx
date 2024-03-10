@@ -7,7 +7,8 @@ import PropertyHeaderImage from "@/components/PropertyHeaderImage";
 import Link from "next/link";
 import PropertyDetails from "@/components/PropertyDetails";
 import { FaArrowLeft } from "react-icons/fa";
-import Spinner from "@/components/spinner";
+import Spinner from "@/components/Spinner";
+import PropertyImages from "@/components/PropertyImages";
 
 const PropertyPage = () => {
   const { id } = useParams();
@@ -20,6 +21,9 @@ const PropertyPage = () => {
 
       try {
         const property = await fetchProperty(id);
+
+        console.log(property);
+
         setProperty(property);
       } catch (error) {
         console.error("Error Fetching Property:", error);
@@ -35,7 +39,7 @@ const PropertyPage = () => {
 
   if (!property && !loading) {
     return (
-      <h1 classNameName="tex-center text-2xl font-bold">Property Not Found</h1>
+      <h1 className="tex-center text-2xl font-bold">Property Not Found</h1>
     );
   }
 
@@ -147,6 +151,7 @@ const PropertyPage = () => {
               </div>
             </div>
           </section>
+          <PropertyImages images={property.images} />
         </>
       )}
     </>
