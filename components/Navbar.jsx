@@ -111,7 +111,6 @@ const Navbar = () => {
                     <button
                       key={index}
                       onClick={() => {
-                        console.log("hallo");
                         signIn(provider.id);
                       }}
                       className="flex items-center text-white bg-gray-700 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
@@ -201,11 +200,14 @@ const Navbar = () => {
                     Your Profile
                   </Link>
                   <Link
-                    href="/properties/save"
+                    href="/properties/saved"
                     className="block px-4 py-2 text-sm text-gray-700"
                     role="menuitem"
                     tabIndex="-1"
                     id="user-menu-item-2"
+                    onClick={() => {
+                      setisProfileMenuOpen(false);
+                    }}
                   >
                     Saved Properties
                   </Link>
@@ -264,7 +266,6 @@ const Navbar = () => {
               <button
                 key={index}
                 onClick={() => {
-                  console.log("hallo");
                   signIn(provider.id);
                 }}
                 className="flex items-center text-white bg-gray-700 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
