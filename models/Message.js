@@ -1,5 +1,4 @@
-import { schema, model, models, Schema } from "mongoose";
-import { Default } from "react-toastify/dist/utils";
+import { Schema, model, models } from "mongoose";
 
 const MessageSchema = new Schema(
   {
@@ -27,6 +26,5 @@ const MessageSchema = new Schema(
   { timestamps: true }
 );
 
-const Message = models.Message || model("Message", "MessageSchema");
-
+const Message = models.Message || model("Message", MessageSchema);
 export default Message;
