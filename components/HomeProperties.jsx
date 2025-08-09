@@ -5,6 +5,12 @@ import { fetchProperties } from "@/utils/requests";
 const HomeProperties = async () => {
   const data = await fetchProperties();
 
+  if (!data || !data.properties || data.properties.length === 0) {
+    return (
+      <p className="text-center mt-6 font-bold text-2xl">No Properties Found</p>
+    );
+  }
+
   const recentProperties = data.properties
     .sort(() => Math.random() - Math.random())
     .slice(0, 3);
